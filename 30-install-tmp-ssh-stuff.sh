@@ -1,0 +1,56 @@
+#!/bin/bash
+. "$(dirname "$0")/util.sh"
+
+if [ ! -f .ssh/id_rsa ] ; then
+    echo "Installing SSH private key"
+    mkdir -p .ssh
+    chmod 0700 .ssh
+    while :; do
+        (base64 -d | gpg > .ssh/id_rsa) <<_EOF
+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
+_EOF
+        if [ $? -eq 0 ] ; then
+            break
+        fi
+    done
+    chmod 0400 .ssh/id_rsa
+    assert [ -f .ssh/id_rsa ]
+    echo "DONE"
+    echo
+fi
+
+cat > ~/.ssh/config << EOF
+Host odroid-home
+    Hostname 82.180.25.186
+    Port 22
+EOF
+
+ssh-add
