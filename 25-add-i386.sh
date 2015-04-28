@@ -5,4 +5,5 @@
 arch=i386
 if [[ ! "$(dpkg --print-foreign-architectures)" =~ "$arch" ]] ; then
     run sudo dpkg --add-architecture $arch
+    run sudo apt-get update
 fi
