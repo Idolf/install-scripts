@@ -38,7 +38,7 @@ _EOF
     chmod 0400 .ssh/id_rsa
 done
 
-if ! [ -s .ssh/id_rsa ] ; then
+if ! [ -s .ssh/config ] ; then
     cat > ~/.ssh/config << EOF
 Host odroid-home
     Hostname 82.180.25.186
