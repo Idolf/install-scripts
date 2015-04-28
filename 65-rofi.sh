@@ -11,7 +11,7 @@ run git clone git@github.com:DaveDavenport/rofi.git .
 run autoreconf -i
 run mkdir build
 run cd build
-run ../configure
+run ../configure --prefix=/opt/rofi
 run make
 run sudo make install
 
