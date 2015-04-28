@@ -3,7 +3,7 @@
 prologue
 
 # requirements
-require gcc make texinfo
+require gcc make texinfo gcc-multilib
 
 wget http://ftp.gnu.org/gnu/binutils/binutils-2.25.tar.gz http://ftp.gnu.org/gnu/binutils/binutils-2.25.tar.gz.sig
 gpg --verify binutils-2.25.tar.gz.sig || exit 1
