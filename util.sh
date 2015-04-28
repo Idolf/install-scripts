@@ -4,16 +4,10 @@
 set -e
 
 # Simulate?
-if [ "$BOOTSTRAP_IS_SIMUATION" == "yes" ] ; then
-    function run () {
-        echo "+ $@"
-    }
-else
-    function run () {
-        echo "+ $@"
-        eval "$@"
-    }
-fi
+function run () {
+    echo "+ $@"
+    eval "$@"
+}
 
 # Utility functions
 function promptyn () {
@@ -48,26 +42,6 @@ function promptyn () {
     done
 }
 
-function promptoptions () {
-    while true ; do
-        read -p "$1 " opt
-        if [ "x${opt}" == "x" ] ; then
-            echo "$3"
-            return
-        fi
-        if [[ "$2" =~ (^| )${opt}($| ) ]] ; then
-            echo "${opt}"
-            return
-        fi
-        echo "Invalid option" > /dev/stderr
-    done
-}
-
-function strstr () {
-    x="${1%%$2*}"
-    [[ "$x" = "$1" ]] && echo -1 || echo ${#x}
-}
-
 function promptlist () {
     PROMPT="[$(echo "$1" | sed "s/\($2\)/\U\1/" | sed "s/./\0\\//g" | \
                head -c -2)] "
@@ -86,13 +60,6 @@ function promptlist () {
         fi
         echo "?" > /dev/stderr
     done
-}
-
-function plural () {
-    echo -n "$1"
-    if [ $2 -ne 1 ] ; then
-        echo -n s
-    fi
 }
 
 function require () {

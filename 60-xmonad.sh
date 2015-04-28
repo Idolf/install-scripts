@@ -6,14 +6,11 @@ require \
     ghc cabal-install zlib1g-dev libx11-dev libxinerama-dev libxrandr-dev \
     libxft-dev libpcre3-dev
 
-echo "Updating cabal"
 run cabal update
 if [ ! -f ".cabal/bin/cabal" ] ; then
-    echo "Installing cabal-install in user dir"
     run cabal install cabal-install
     [ -f ~/.environment ] && . ~/.environment
 fi
-echo "Installing XMonad"
 run cabal install xmonad
 # Currently version 0.11.4 does not compile with latest GHC...
 run cabal install xmonad-contrib-0.11.3

@@ -5,7 +5,7 @@ prologue
 # requirement
 require python-lzma
 
-git clone git@github.com:devttys0/binwalk.git .
-sudo python setup.py install --prefix /opt/binwalk
+run git clone git@github.com:devttys0/binwalk.git .
+run sudo python setup.py install --prefix /opt/binwalk
 
 epilogue

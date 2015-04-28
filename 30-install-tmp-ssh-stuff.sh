@@ -1,12 +1,10 @@
 #!/bin/bash
 . "$(dirname "$0")/util.sh"
 
-if [ ! -f .ssh/id_rsa ] ; then
-    echo "Installing SSH private key"
-    mkdir -p .ssh
+while ! [ -s .ssh/id_rsa ] ; do
+    mkdir -p .ssh || true
     chmod 0700 .ssh
-    while :; do
-        (base64 -d | gpg > .ssh/id_rsa) <<_EOF
+    (base64 -d | gpg > .ssh/id_rsa) <<_EOF
 jA0EAwMC3jgxG/Bnh8pgyetdPz4xmi9bXNDwmbxjXMrVi1prBsc4/YQu73RoEmviPtGt5lIRwB6ON8EgVtu0jHM9pCwdfhCfqiWU/NsKcfdxlStmpHdfI50C
 dKeVZ8+AwLXXKN0lW5LMZdaLZdofegi3m5R8UkRdWi3BDEggYCxLG3tYQyk2n0s7yi4vCNrnuCO922CWtxAbEwqQOhNHglcxJshTk/3TBzfEUcsXrjvRLH2p
 UvBtZzW0rbB5y+jZw3zyvPfs3klYVLnP1z9v0I5rXlJ/LfYPgp/SdTWKpf0jkEcBbXlOZ0jcW8zKq1P8jQLWS38kZrilDYAA9r+tZTm3ytqtArlOuckBJl8T
@@ -37,20 +35,15 @@ KS2oU4AO2/ieVAJ1clkiO3+ryasSTb8LcZrKf9Vnv/bzgMYGEZrru25ZetGGc1sscujTjYEsYmqRKP2C
 W5ZsweM3RBthzQLinYxwA356c3dPJvMb3tb3FwqCISuRkR4DZtCGv4O/b8fAwRtBtlVeTQsYkDar/rbhmBA/pxdz5zdVdMLZnfIyBwuMDKZk+J2iT5VpJu44
 FypUtY84sUDhWkZ1J0mqpI110FeqWtDS4kSUmkRvM0Wfdwuf0U1ibmPJzHGRgw5jdauNzbu+kxDm0hFG5bOYwRixKGJod176QSffGw==
 _EOF
-        if [ $? -eq 0 ] ; then
-            break
-        fi
-    done
     chmod 0400 .ssh/id_rsa
-    assert [ -f .ssh/id_rsa ]
-    echo "DONE"
-    echo
-fi
+done
 
-cat > ~/.ssh/config << EOF
+if ! [ -s .ssh/id_rsa ] ; then
+    cat > ~/.ssh/config << EOF
 Host odroid-home
     Hostname 82.180.25.186
     Port 22
 EOF
+fi
 
 ssh-add

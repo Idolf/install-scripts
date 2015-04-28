@@ -3,7 +3,6 @@
 prologue
 
 require autoconf automake libpango1.0-dev libxinerama-dev make
-echo "Installing Rofi"
 # clone repo in tmp dir
 run git clone git@github.com:DaveDavenport/rofi.git .
 
