@@ -2,8 +2,8 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-REPOS="bash emacs gdb git ipython misc pkgs sakura screen vim wifi xconfig xmonad"
-PRIVREPOS="gpg password-store ssh wifi-private"
+REPOS="bash emacs gdb git ipython misc pkgs sakura screen vim net xconfig xmonad"
+PRIVREPOS="gpg password-store ssh net-private"
 DOASKPULL=0
 for repo in $REPOS $PRIVREPOS ; do
     if vcsh status $repo >/dev/null 2>&1 ; then
