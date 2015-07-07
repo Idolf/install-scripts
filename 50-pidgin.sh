@@ -3,7 +3,7 @@
 prologue
 
 # requirement -- not needed after building
-require libgtk2.0-dev libxml2-dev libidn11-dev libgnutls28-dev libotr5-dev intltool
+require libgtk2.0-dev libxml2-dev libidn11-dev libgnutls28-dev libotr5-dev intltool gcc
 
 run wget http://heanet.dl.sourceforge.net/project/pidgin/Pidgin/2.10.11/pidgin-2.10.11.tar.bz2.asc http://heanet.dl.sourceforge.net/project/pidgin/Pidgin/2.10.11/pidgin-2.10.11.tar.bz2
 run gpg --verify pidgin-2.10.11.tar.bz2.asc || exit 1
