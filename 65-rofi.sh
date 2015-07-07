@@ -15,6 +15,4 @@ run ../configure --prefix=/opt/rofi
 run make
 run sudo make install
 
-assert installed rofi
-
 epilogue
