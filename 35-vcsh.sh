@@ -2,8 +2,16 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-REPOS="bash emacs firefox gdb git ipython misc pkgs sakura screen vim net xconfig xmonad"
-PRIVREPOS="autorandr gpg password-store ssh net-private"
+mkdir $HOME/git || true
+if ! [ -e $HOME/git/net ]; then
+  git clone git@github.com:Idolf/net.git $HOME/git/net
+fi
+if ! [ -e $HOME/git/check-pkgs ]; then
+  git clone git@github.com:Idolf/check-pkgs $HOME/git/check-pkgs
+fi
+
+REPOS="bash emacs firefox gdb git ipython misc pkgs sakura screen vim xconfig xmonad"
+PRIVREPOS="autorandr gpg password-store ssh net"
 DOASKPULL=0
 for repo in $REPOS $PRIVREPOS ; do
     if vcsh status $repo >/dev/null 2>&1 ; then
