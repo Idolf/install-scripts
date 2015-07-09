@@ -1,4 +1,4 @@
 #!/bin/bash
 . "$(dirname "$0")/util.sh"
 
-require coreutils git gnupg netcat-openbsd python openssh-client tar vcsh wget bzip2 python-yaml
+require coreutils git gnupg netcat-openbsd python openssh-client tar wget bzip2 python-yaml
