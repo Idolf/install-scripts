@@ -19,9 +19,6 @@ run cabal install regex-pcre
 # Compile `blink' to alert me of IRC activity
 run sudo gcc .xmonad/blink.c -o .xmonad/blink
 run sudo chmod u+s .xmonad/blink
-# Compile `suspend' to lock the screen and suspend the computer
-run sudo gcc .xmonad/suspend.c -o .xmonad/suspend
-run sudo chmod u+s .xmonad/suspend
 
 run xmonad --recompile
 
