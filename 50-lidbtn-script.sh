@@ -6,7 +6,7 @@ sudo tee /root/lid.sh >/dev/null <<EOFF
 #!/bin/sh
 
 if grep -q closed /proc/acpi/button/lid/LID/state; then
-  su - freaken -c 'DISPLAY=:0 slock' &
+  su - $USER -c 'DISPLAY=:0 slock' &
   sleep 1
   pm-suspend &
 fi
