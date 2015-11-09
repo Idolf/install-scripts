@@ -9,6 +9,6 @@ run vcsh clone git@git.pwnies.dk:IdolfHatler/vcsh-mr.git mr || true
 run vcsh mr fetch origin master
 run vcsh mr reset --hard origin/master
 run vcsh mr checkout -f $HOME
-run mr -j4 co
+run mr co
 
 epilogue

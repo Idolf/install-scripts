@@ -3,7 +3,7 @@
 prologue
 
 # requirement -- not needed after building
-require bzr libgtk-3-dev libvte-2.90-dev cmake g++
+require bzr libgtk-3-dev libvte-2.91-dev cmake g++
 
 run bzr branch http://bazaar.launchpad.net/~dabisu/sakura/sakura
 run cd sakura

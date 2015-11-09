@@ -2,7 +2,7 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-require autoconf automake libpango1.0-dev libxinerama-dev make
+require autoconf automake libpango1.0-dev libxinerama-dev make libstartup-notification0-dev
 # clone repo in tmp dir
 run git clone git@github.com:DaveDavenport/rofi.git .
 

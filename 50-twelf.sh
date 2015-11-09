@@ -10,6 +10,6 @@ run sha1sum twelf-src-1.7.1.tar.gz | grep 7717ddb924d12f1b9aa3934ea5fa44e133f725
 run tar zxfv twelf-src-1.7.1.tar.gz
 cd twelf
 make mlton
-cp -a . /opt/twelf
+sudo cp -a . /opt/twelf
 
 epilogue

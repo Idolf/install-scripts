@@ -41,6 +41,7 @@ done
 if ! [ -s .ssh/config ] ; then
     cat > ~/.ssh/config << EOF
 Host odroid-home
+    User freaken
     Hostname 82.180.25.186
     Port 22
 EOF
