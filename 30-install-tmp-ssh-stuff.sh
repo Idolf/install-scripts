@@ -5,13 +5,13 @@ while ! [ -s .ssh/id_ed25519_odroid ] ; do
     mkdir -p .ssh || true
     chmod 0700 .ssh
     (base64 -d | gpg > .ssh/id_ed25519_odroid) <<_EOF
-jA0EAwMCfkcZmUI+9B1gycC1wVi/RUu6Iij5KEgGDqMmGgufTLOFwbDmiJRzKdPA77Ctam6IiFcu
-hrcmBgPxnC3l+7Dmnzqggd3tFvtfqeLolDr37PYv+RXvY645dUcEZ3OMq/yTe/RrczLVAghfaZx5
-d+hCUcBqxiuHJi2tiUoy0qC8fLLn5FCnwqHzTCQ6ex60P4LdBKWiyx9afv1LBfxSfAJ9106oT2GB
-XJd6ZISwTyih7fn5svjvrA73n+eo85tGa7SH8xkvX+K2YE2W4rQ/vSN5P8i0ANtaYJN935L7Tg/a
-GkWVryXNjwQcZVAhwS60wAyI4W+0rAwrAJEgW13f/zW5JgNYye8fVji13I8RuV9F5kLoz9Z0v6PZ
-Rm6jc8KZL5ygVKss6zrQezu/sghac2nGKZZKSlUF6cISY/JXcQkFjTvr4zkLJa70yex/sERU0vm8
-VpdDfRBT9Bpi1WF1L9ABP5EgMDETzvS2X3czOflqT6mrTVsGDrAB32h2jKXv1ohROQ==
+jA0EAwMC6s/GltHaDbZgycC0ef7YYVm8Nobw0OtfxzP++exhBDAbUTG0FSsN8gp736/F2S5fijge
+OVbTxxrrR2OnJIawxuhd1spd02c6ec9meRlUkJhnfp7BWM7Ac+18//Fukk+G+HybMFTDbX9p8WCP
+cHrtDK9TNNmK9wD48urPn1AVDYf4iMkpicg4whHNLcYW9etRRStKbMzHFQhuxNiZhZcCmWeTE7tB
++F/pGKOvdakhM3XreavMJNHU9329DFDphI7e7QV8tKFH/mz5YBX3/woyxoAeuhTcWSeHvZ8tJenY
+507IKnaXQ9/+Hinx97t8YqiLQCz7vb5U+pSwpOOk1yT+JQ5NaYBAJWWL1yI8m57ZBW9nfvP0BJ0d
+HiyFIVJrJkqNo7BFtefbOnFFNWLGMYTj1tfSSeqmdNoyUUuY+wvKQPvMOcJt2DDx1C4vvgtgBBAq
+OHX6pp+EZWgzURdQ03PWfUd6iKYlSEd99KbjRmoiNjKPdoRaWD6/hXp41uwmSumD
 _EOF
     chmod og-rwx -R .ssh
 done
