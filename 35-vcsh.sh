@@ -8,7 +8,11 @@ cd $HOME
 run vcsh clone odroid-home:vcsh/ssh ssh || true
 run vcsh ssh fetch origin master
 run vcsh ssh reset --hard origin/master
-run vcsh mr checkout -f $HOME
+run vcsh ssh checkout -f $HOME
+run chmod og-rwx -R ~/.ssh
+
+eval `ssh-agent`
+ssh-add `ls ~/.ssh/id_*_* | grep -v 'pub$'`
 
 run vcsh clone git@git.pwnies.dk:IdolfHatler/vcsh-mr.git mr || true
 run vcsh mr fetch origin master
