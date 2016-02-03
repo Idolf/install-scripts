@@ -2,15 +2,21 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-sudo tee /root/lid.sh >/dev/null <<EOFF
+sudo tee /root/lid.sh >/dev/null <<EOF
 #!/bin/sh
 
 if grep -q closed /proc/acpi/button/lid/LID/state; then
-  su - $USER -c 'DISPLAY=:0 slock' &
+  su - idolf -c 'DISPLAY=:0 slock' &
   sleep 1
-  pm-suspend &
+  (
+    pm-suspend
+    for i in \`seq 100\`; do
+      sleep 0.25
+      DISPLAY=:0 su -c xrandr idolf
+    done
+  ) &
 fi
-EOFF
+EOF
 
 sudo chmod 755 /root/lid.sh
 
