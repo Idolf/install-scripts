@@ -7,7 +7,7 @@ sudo tee /root/lid.sh >/dev/null <<EOF
 
 if grep -q closed /proc/acpi/button/lid/LID/state; then
   su - idolf -c 'DISPLAY=:0 slock' &
-  sleep 1
+  sleep 0.2
   (
     pm-suspend
     for i in \`seq 100\`; do
