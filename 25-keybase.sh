@@ -86,5 +86,5 @@ sudo tee /etc/apt/sources.list.d/keybase.list << EOF
 deb http://s3.amazonaws.com/prerelease.keybase.io/deb stable main
 EOF
 
-sudo apt-key add /tmp/keybase.pub
+sudo apt-key add /tmp/keybase.key
 sudo apt-get update && sudo apt-get install keybase
