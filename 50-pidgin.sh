@@ -15,10 +15,10 @@ run make -j4
 run sudo make install
 run popd
 
-run wget https://otr.cypherpunks.ca/pidgin-otr-4.0.1.tar.gz https://otr.cypherpunks.ca/pidgin-otr-4.0.1.tar.gz.asc
-run gpg --verify pidgin-otr-4.0.1.tar.gz.asc || exit 1
-run tar zxfv pidgin-otr-4.0.1.tar.gz
-run pushd pidgin-otr-4.0.1
+run wget https://otr.cypherpunks.ca/pidgin-otr-4.0.2.tar.gz https://otr.cypherpunks.ca/pidgin-otr-4.0.2.tar.gz.asc
+run gpg --verify pidgin-otr-4.0.2.tar.gz.asc || exit 1
+run tar zxfv pidgin-otr-4.0.2.tar.gz
+run pushd pidgin-otr-4.0.2
 run PKG_CONFIG_PATH=/opt/pidgin/lib/pkgconfig/ ./configure --prefix=/opt/pidgin --disable-nls
 run make -j4
 run sudo make install
