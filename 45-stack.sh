@@ -5,4 +5,7 @@ wget -q -O- https://s3.amazonaws.com/download.fpcomplete.com/ubuntu/fpco.key | s
 echo 'deb http://download.fpcomplete.com/ubuntu/yakkety stable main'|sudo tee /etc/apt/sources.list.d/fpco.list
 sudo apt-get update
 require stack
-stack setup
+CONF_LD_LINKER_OPTS_STAGE2=-no-pie \
+  CONF_GCC_LINKER_OPTS_STAGE2=-no-pie \
+  CONF_CC_OPTS_STAGE2=-fno-PIE  \
+  stack setup

@@ -15,7 +15,10 @@ run sudo chmod u+s /usr/local/bin/_brightness
 run sudo cp brightness.py /usr/local/bin/brightness
 run sudo chmod 755 /usr/local/bin/brightness
 
-run stack setup
+CONF_LD_LINKER_OPTS_STAGE2=-no-pie \
+  CONF_GCC_LINKER_OPTS_STAGE2=-no-pie \
+  CONF_CC_OPTS_STAGE2=-fno-PIE  \
+  run stack setup
 run stack install
 . ~/.environment
 assert installed xmonad
