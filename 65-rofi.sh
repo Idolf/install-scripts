@@ -4,7 +4,7 @@ prologue
 
 require autoconf automake libpango1.0-dev libxinerama-dev make libstartup-notification0-dev
 # clone repo in tmp dir
-run git clone git@github.com:DaveDavenport/rofi.git .
+run git clone https://github.com/DaveDavenport/rofi.git .
 
 # install
 # recipe from INSTALL.md
