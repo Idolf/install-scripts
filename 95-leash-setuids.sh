@@ -1,6 +1,5 @@
 #!/bin/sh
 
-sudo chmod -s /bin/fusermount
 sudo chmod -s /bin/mount
 sudo chmod -s /bin/ping6
 sudo chmod -s /bin/su
