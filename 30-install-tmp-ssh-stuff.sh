@@ -20,7 +20,7 @@ if ! [ -s .ssh/config ] ; then
     cat > ~/.ssh/config << EOF
 Host odroid-home
     User freaken
-    Hostname 82.180.25.186
+    Hostname odroid.lan
     Port 22
     IdentityFile ~/.ssh/id_ed25519_odroid
     KexAlgorithms curve25519-sha256@libssh.org
