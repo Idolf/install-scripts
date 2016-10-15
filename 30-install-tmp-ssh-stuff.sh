@@ -5,6 +5,7 @@ while ! [ -s ~/.ssh/keys/odroid ] ; do
     mkdir -p ~/.ssh/keys || true
     chmod og-rwx -R .ssh 
     cp /keybase/private/idolfhatler/odroid-ssh-key.gpg /tmp
+    cp /keybase/private/idolfhatler/odroid-ssh-key.pub ~/.ssh/keys/odroid.pub
     chmod og-rwx /tmp/odroid-ssh-key.gpg
     gpg -d /tmp/odroid-ssh-key.gpg > ~/.ssh/keys/odroid
     shred -u /tmp/odroid-ssh-key.gpg
@@ -26,4 +27,3 @@ Host odroid
 EOF
 fi
 
-ssh-add ~/.ssh/keys/odroid
