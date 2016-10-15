@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sudo chmod -s /bin/fusermount
 sudo chmod -s /bin/mount
 sudo chmod -s /bin/ping6
 sudo chmod -s /bin/su
@@ -22,10 +23,10 @@ sudo chmod -s /usr/lib/emacs/*/x86_64-linux-gnu/movemail
 sudo chmod -s /usr/lib/libvte-*/gnome-pty-helper
 sudo chmod -s /usr/lib/openssh/ssh-keysign
 sudo chmod -s /usr/lib/pt_chown
-sudo chmod -s /usr/lib/virtualbox/VBoxSDL
-sudo chmod -s /usr/lib/virtualbox/VBoxNetAdpCtl
 sudo chmod -s /usr/lib/virtualbox/VBoxHeadless
+sudo chmod -s /usr/lib/virtualbox/VBoxNetAdpCtl
 sudo chmod -s /usr/lib/virtualbox/VBoxNetDHCP
+sudo chmod -s /usr/lib/virtualbox/VBoxSDL
 sudo setcap -r /usr/bin/systemd-detect-virt 2>/dev/null || true
 sudo setcap -r /usr/lib/x86_64-linux-gnu/gstreamer*/gstreamer-*/gst-ptp-helper 2>/dev/null || true
 
