@@ -88,3 +88,4 @@ EOF
 
 sudo apt-key add /tmp/keybase.key
 sudo apt-get update && sudo apt-get install keybase
+keybase login
