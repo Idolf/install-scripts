@@ -2,7 +2,7 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-require autoconf automake libpango1.0-dev libxinerama-dev make libstartup-notification0-dev libxcb-util-dev
+require autoconf automake libpango1.0-dev libxinerama-dev make libstartup-notification0-dev libxcb-util0-dev
 require libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-ewmh-dev libxcb-xrm-dev
 require libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev
 # clone repo in tmp dir

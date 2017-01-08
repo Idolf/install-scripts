@@ -2,7 +2,7 @@
 . "$(dirname "$0")/util.sh"
 
 # requirement
-require stack
+require stack libxrandr-dev
 
 cd $HOME/git/xmonad
 # Compile `blink' to alert me of IRC activity
