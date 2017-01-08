@@ -1,7 +1,6 @@
 #!/bin/sh
 
 sudo chmod -s /bin/mount
-sudo chmod -s /bin/ping6
 sudo chmod -s /bin/su
 sudo chmod -s /bin/umount
 sudo chmod -s /sbin/pam_extrausers_chkpwd
