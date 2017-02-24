@@ -17,6 +17,7 @@ sudo chmod -s /usr/bin/passwd
 sudo chmod -s /usr/bin/ssh-agent
 sudo chmod -s /usr/bin/wall
 sudo chmod -s /usr/bin/X
+sudo chmod -s /usr/lib/chromium-browser/chrome-sandbox
 sudo chmod -s /usr/lib/emacs/*/x86_64-linux-gnu/movemail
 sudo chmod -s /usr/lib/libvte-*/gnome-pty-helper
 sudo chmod -s /usr/lib/openssh/ssh-keysign
