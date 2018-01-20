@@ -5,13 +5,13 @@ prologue
 require vcsh myrepos python-pip
 
 cd $HOME
-run vcsh clone odroid:vcsh/ssh ssh || true
+run vcsh clone odroidu3:/mnt/hades/home/freaken/vcsh/ssh ssh || true
 run vcsh ssh fetch origin master
 run vcsh ssh reset --hard origin/master
 run vcsh ssh checkout -f $HOME
 run chmod og-rwx -R ~/.ssh
 
-ssh-add `ls ~/.ssh/keys/* | grep -v 'pub$'`
+ssh-add `ls ~/.ssh/keys/* | grep -v 'pub$'` || true
 
 run vcsh clone git@github.com:Idolf/vcsh-mr.git mr || true
 run vcsh mr fetch origin master
