@@ -4,7 +4,7 @@ prologue
 
 require autoconf automake libpango1.0-dev libxinerama-dev make libstartup-notification0-dev libxcb-util0-dev
 require libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-ewmh-dev libxcb-xrm-dev
-require libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev bison
+require libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev bison flex librsvg2-dev
 # clone repo in tmp dir
 run git clone https://github.com/DaveDavenport/rofi.git .
 
@@ -14,7 +14,7 @@ run git submodule update --init
 run autoreconf -i
 run mkdir build
 run cd build
-run ../configure --prefix=/opt/rofi
+run ../configure --prefix=/opt/rofi --disable-check
 run make
 run sudo make install
 

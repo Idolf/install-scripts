@@ -64,14 +64,18 @@ function promptlist () {
 
 function require () {
     echo "Checking for needed packages"
+    NEEDED=''
     for pkg in $@ ; do
         if dpkg --status $pkg >/dev/null 2>&1 ; then
             echo "OK $pkg"
         else
             echo "Missing $pkg"
-            run sudo apt-get -y install --no-install-recommends $pkg
+            NEEDED="$NEEDED $pkg"
         fi
     done
+    if [[ $NEEDED ]]; then
+      run sudo apt-get -y install --no-install-recommends $NEEDED
+    fi
 }
 
 function installed () {
