@@ -1,0 +1,112 @@
+#!/bin/bash
+. "$(dirname "$0")/util.sh"
+prologue
+
+require fontconfig fonts-noto fonts-noto-color-emoji fonts-noto-mono fonts-symbola unifont fonts-liberation
+sudo apt-get purge fonts-dejavu-core ttf-bitstream-vera fonts-freefont
+
+cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
+<?xml version="1.0" ?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <match target="scan">
+    <test name="family">
+      <string>Noto Color Emoji</string>
+    </test>
+    <edit name="scalable" mode="assign">
+      <bool>true</bool>
+    </edit>
+  </match>
+
+  <match target="pattern">
+    <test name="prgname">
+        <string>chromium</string>
+    </test>
+    <edit name="family" mode="prepend_first">
+      <string>Noto Color Emoji</string>
+    </edit>
+  </match>
+
+  <rejectfont>
+    <pattern><patelt name="family"><string>Liberation Serif</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Sans</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Sans Narrow</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Mono</string></patelt></pattern>
+  </rejectfont>
+
+  <alias>
+    <family>serif</family>
+    <prefer><family>Noto Serif</family></prefer>
+  </alias>
+  <alias>
+    <family>sans-serif</family>
+    <prefer><family>Noto Sans</family></prefer>
+  </alias>
+  <alias>
+    <family>sans</family>
+    <prefer><family>Noto Sans</family></prefer>
+  </alias>
+  <alias>
+    <family>monospace</family>
+    <prefer><family>Noto Mono</family></prefer>
+  </alias>
+
+  <match>
+    <test name="family"><string>Arial</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Sans</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Helvetica</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Sans</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Verdana</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Sans</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Tahoma</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Sans</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Comic Sans MS</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Sans</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Times New Roman</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Serif</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Times</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Serif</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Courier</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Mono</string>
+    </edit>
+  </match>
+  <match>
+    <test name="family"><string>Courier New</string></test>
+    <edit name="family" mode="prepend" binding="strong">
+      <string>Noto Mono</string>
+    </edit>
+  </match>
+</fontconfig>
+EOF
+
+sudo fc-cache -f -v
+epilogue
