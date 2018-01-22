@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo rm /etc/resolv.conf
+sudo rm /etc/resolv.conf || true

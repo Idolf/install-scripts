@@ -2,5 +2,6 @@
 . "$(dirname "$0")/util.sh"
 
 require haskell-stack
-stack upgrade
+stack upgrade --install-ghc
+hash -r
 stack setup
