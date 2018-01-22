@@ -5,7 +5,7 @@ prologue
 require vcsh myrepos python-pip
 
 cd $HOME
-run vcsh clone odroidu3:/mnt/hades/home/freaken/vcsh/ssh ssh || true
+run vcsh clone odroidu3:/vcsh/ssh ssh || true
 run vcsh ssh fetch origin master
 run vcsh ssh reset --hard origin/master
 run vcsh ssh checkout -f $HOME
