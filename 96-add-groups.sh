@@ -1,5 +1,6 @@
 #!/bin/sh
 
-sudo adduser idolf audio
-sudo adduser idolf wireshark
-sudo adduser idolf video
+sudo adduser tethys audio
+sudo adduser tethys wireshark
+sudo adduser tethys video
+sudo adduser tethys input

@@ -2,11 +2,12 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
+require acpi-support
 sudo tee /root/lid.sh >/dev/null <<EOF
 #!/bin/sh
 
 if grep -q closed /proc/acpi/button/lid/LID/state; then
-  su - idolf -c 'DISPLAY=:0 slock' &
+  su - tethys -c 'DISPLAY=:0 slock' &
   sleep 0.2
   pm-suspend &
 fi
