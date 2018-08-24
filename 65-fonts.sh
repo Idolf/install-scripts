@@ -2,8 +2,7 @@
 . "$(dirname "$0")/util.sh"
 prologue
 
-require fontconfig fonts-noto fonts-noto-color-emoji fonts-noto-mono fonts-symbola unifont fonts-liberation
-sudo apt-get purge fonts-dejavu-core ttf-bitstream-vera fonts-freefont
+require fontconfig fonts-noto fonts-noto-color-emoji fonts-noto-mono
 
 cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
 <?xml version="1.0" ?>
@@ -18,15 +17,6 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
     </edit>
   </match>
 
-  <match target="pattern">
-    <test name="prgname">
-        <string>chromium</string>
-    </test>
-    <edit name="family" mode="prepend_first">
-      <string>Noto Color Emoji</string>
-    </edit>
-  </match>
-
   <rejectfont>
     <pattern><patelt name="family"><string>Liberation Serif</string></patelt></pattern>
     <pattern><patelt name="family"><string>Liberation Sans</string></patelt></pattern>
@@ -34,21 +24,56 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
     <pattern><patelt name="family"><string>Liberation Mono</string></patelt></pattern>
   </rejectfont>
 
+  <match target="pattern">
+    <test name="family" qual="first" compare="contains">
+      <string>symbola</string>
+    </test>
+    <edit mode="assign" name="color">
+      <bool>true</bool>
+    </edit>
+    <edit mode="assign" name="family">
+      <string>Noto Color Emoji</string>
+    </edit>
+  </match>
+
+  <match target="pattern">
+    <test name="family" qual="first" compare="contains">
+      <string>emoji</string>
+    </test>
+    <edit mode="assign" name="color">
+      <bool>true</bool>
+    </edit>
+    <edit mode="assign" name="family">
+      <string>Noto Color Emoji</string>
+    </edit>
+  </match>
+
   <alias>
     <family>serif</family>
-    <prefer><family>Noto Serif</family></prefer>
+    <prefer>
+      <family>Noto Serif</family>
+    </prefer>
   </alias>
+
   <alias>
     <family>sans-serif</family>
-    <prefer><family>Noto Sans</family></prefer>
+    <prefer>
+      <family>Noto Sans</family>
+    </prefer>
   </alias>
+
   <alias>
     <family>sans</family>
-    <prefer><family>Noto Sans</family></prefer>
+    <prefer>
+      <family>Noto Sans</family>
+    </prefer>
   </alias>
+
   <alias>
     <family>monospace</family>
-    <prefer><family>Noto Mono</family></prefer>
+    <prefer>
+      <family>Noto Mono</family>
+    </prefer>
   </alias>
 
   <match>
@@ -103,6 +128,18 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
     <test name="family"><string>Courier New</string></test>
     <edit name="family" mode="prepend" binding="strong">
       <string>Noto Mono</string>
+    </edit>
+  </match>
+
+  <match target="pattern">
+    <test name="family" qual="first" compare="contains">
+      <string>emoji</string>
+    </test>
+    <edit mode="assign" name="color">
+      <bool>true</bool>
+    </edit>
+    <edit mode="assign" name="family">
+      <string>Noto Color Emoji</string>
     </edit>
   </match>
 </fontconfig>
