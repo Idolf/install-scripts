@@ -17,13 +17,6 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
     </edit>
   </match>
 
-  <rejectfont>
-    <pattern><patelt name="family"><string>Liberation Serif</string></patelt></pattern>
-    <pattern><patelt name="family"><string>Liberation Sans</string></patelt></pattern>
-    <pattern><patelt name="family"><string>Liberation Sans Narrow</string></patelt></pattern>
-    <pattern><patelt name="family"><string>Liberation Mono</string></patelt></pattern>
-  </rejectfont>
-
   <match target="pattern">
     <test name="family" qual="first" compare="contains">
       <string>symbola</string>
@@ -47,6 +40,13 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
       <string>Noto Color Emoji</string>
     </edit>
   </match>
+
+  <rejectfont>
+    <pattern><patelt name="family"><string>Liberation Serif</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Sans</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Sans Narrow</string></patelt></pattern>
+    <pattern><patelt name="family"><string>Liberation Mono</string></patelt></pattern>
+  </rejectfont>
 
   <alias>
     <family>serif</family>
@@ -128,18 +128,6 @@ cat << EOF | sudo tee /etc/fonts/conf.d/01-notosans.conf
     <test name="family"><string>Courier New</string></test>
     <edit name="family" mode="prepend" binding="strong">
       <string>Noto Mono</string>
-    </edit>
-  </match>
-
-  <match target="pattern">
-    <test name="family" qual="first" compare="contains">
-      <string>emoji</string>
-    </test>
-    <edit mode="assign" name="color">
-      <bool>true</bool>
-    </edit>
-    <edit mode="assign" name="family">
-      <string>Noto Color Emoji</string>
     </edit>
   </match>
 </fontconfig>
